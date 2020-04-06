@@ -2,7 +2,11 @@
 // Check to see if the string is empty.  Return true or false.
 function isEmptyString(string) {
     let result; 
-    // Add your code here.
+    if(string.length > 0){
+        result = false
+    }else {
+        result = true
+    }
     return result;
 }
 //Tests: Run these commands to make sure you did it right. They should all be true.
@@ -16,9 +20,15 @@ console.log(isEmptyString(" ") ===  false);
 // Hint: indexOf is case sensitive! So how can you search for any possible case of java? What if you made the entire text string lowercase? Then you searched through that?  Check out the Essential String Functions from the reading and see if there's a useful function there.
 function containsWordJava(text) {
     let result; 
-    // Add your code here.
+    let lowercase = text.toLowerCase()
+    if(lowercase.indexOf("java") > -1){
+    result = true;
+    }else{
+    result= false;
+    }
     return result;
 }
+
 //Tests: Run these commands to make sure you did it right. They should all be true.
 console.log(containsWordJava("Hello this is a message about coding.") === false);
 console.log(containsWordJava("Hello this is a message about JavaScript!") === true);
@@ -30,11 +40,15 @@ console.log(containsWordJava("JAVA IS FUN :D") === true);
 // Note that the length of the string should be maxLength including the ellipsis.  This means you'll have to subtract the lenght of the ellipsis fom the maxLength to know how many characters there should be.
 // Hint: Look at the "slice" method.  You can set the first argument to zero to make it start at the beginning of the string.   (Watch out that slice returns a new string! You need to assign it to something)
 function trimSentence(text, maxLength) {
-    // Add your code here.
-    return text;
+    if(text.length > maxLength) {
+        let result = text.slice (0, maxLength -3) + "..."
+        return result;
+
+    } else {
+        return text
+    }
 }
 //Tests: Run these commands to make sure you did it right. They should all be true.
 console.log(trimSentence("The fox jumped over the fence to get to the farm.", 16) === "The fox jumpe...");
 console.log(trimSentence("supercalifragilisticexpialidocious", 20) === "supercalifragilis...");
 console.log(trimSentence("Short", 16) === "Short");
- 
